@@ -39,7 +39,7 @@ async function upload(filePath, objectKey) {
   console.log("R2 response:", result);
 }
 
-upload("CpiReleaseSchedule.csv", "CpiReleaseSchedule.csv")
+upload("CpiReleaseSchedule2026.csv", "CpiReleaseSchedule2026.csv")
   .catch(err => {
     console.error("Upload failed:", err);
   });
