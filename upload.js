@@ -5,7 +5,7 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 const r2AccountId = "ffc2e4220189c8652dd5a9d1aa442da3";
 const r2AccessKeyId = "24f9ae67c9ea90f7171ab704d2c174d6";
 const r2SecretAccessKey = "347b6ec9c17f0a496f6c1b743a542409fc001a9b8dc6e5eed1dadb8d355fb150";
-const r2BucketName = "bls";
+const r2BucketName = "data";
 
 const r2Endpoint = `https://${r2AccountId}.r2.cloudflarestorage.com`;
 
@@ -23,7 +23,7 @@ export async function upload(filePath) {
 
   const body = fs.readFileSync(filePath);
 
-  const remoteKey = path.basename(filePath);   // ✅ FIX
+  const remoteKey = `bls/${path.basename(filePath)}`;
 
   const command = new PutObjectCommand({
     Bucket: r2BucketName,
